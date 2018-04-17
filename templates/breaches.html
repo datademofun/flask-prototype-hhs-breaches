@@ -3,15 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Health Care Data Breaches</title>
+    <link rel="stylesheet" href="/static/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/static/stylesheets/mystyles.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
   </head>
   <body>
 
     <section class="container">
       <h1>Health Care Data Breaches</h1>
 
-        <p>This database has {{breaches | length }} total breaches</p>
+        <p>This database has {{ breaches | length }} total breaches</p>
 
         <p>
+
+          asjdflkjasdflkasjdfklfsadfjkalskdfjl
         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
@@ -20,10 +26,23 @@
           {% for b in breaches %}
             <tr>
               <td>
-                <a href="/breaches/{{ b.id }}">id</a>
+                <a href="/breaches/{{ b.id }}">{{ b.id }}</a>
               </td>
               <td>
                 {{ b['Name of Covered Entity'] }}
+              </td>
+              <td>
+                <a href="/state/{{b['State']}}">{{ b['State']  }}</a>
+              </td>
+              <td> 
+                {{ b['Individuals Affected'] }}
+              </td>
+              <td>
+                {{ b['Breach Submission Date'] }}
+              </td>
+              <td>
+                {{ b['Web Description'] | length  }}
+
               </td>
             </tr>
           {% endfor %}
